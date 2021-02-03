@@ -127,31 +127,47 @@
 
     </ul>
 </div> -->
-<div class="d-banner-wide _module-space-top -promo">
-    <a href="https://www.ducati.com/au/en/home/ducati-world-premiere">
-        <div class="wrapper">
-            <div class="text"> <span class="category">THE WEB SERIES</span>
-                <h1 class="title">Five episodes dedicated to model range for 2021 </h1> <span class="description">The latest Ducati model range presented in five episodes, directly from Claudio Domenicali and the engineers and designers who designed and create them. </span> <span class="d-link " title="Clicca qui">
-    
-    <span>WATCH NOW</span> </span>
-            </div>
-            <picture class="image"> <img class="lazyload" data-srcset="<?php echo $img_url.'/assets/images/DWP-01-cover-img-large-663x249__3_.jpg';?>" alt="" data-object-fit="cover"> </picture>
-        </div>
-    </a>
-</div>
-<div class="d-banner-wide -promo">
-    <a href="https://shop.ducati.com/au/en/new-products-2020.html" target="_blank">
-        <div class="wrapper">
-            <div class="text"> <span class="category">Ducati Shop Online</span>
-                <h2 class="title">The new apparel collection awaits you</h2> <span class="description">Shop the range of technical pieces, designed to satisfy the needs of all types of riders. And don&#39;t miss the selection of casual styles, perfect for fans who want to flaunt Ducati&#39;s style day after day</span> <span class="d-link " title="Clicca qui">
-    
-    <span>BUY NOW</span> </span>
-            </div>
-            <picture class="image"> <img class="lazyload" data-srcset="<?php echo $img_url.'/assets/images/Nuova_Collezione.jpg';?>" alt="" data-object-fit="cover"> </picture>
-        </div>
-    </a>
-</div>
-<div class="d-banner-wide _module-space-top _module-space-bottom">
+<!-- start -->
+<?php
+        $wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1,'category_name'=>'Home page Promotion')); 
+        // print_r($wpb_all_query);?>
+        <?php if ( $wpb_all_query->have_posts() ) { ?>
+ 
+
+ 
+            <!-- the loop -->
+            
+            <?php
+            //$i=0;
+             while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); 
+                //$i++;?>
+               
+                <div class="d-banner-wide _module-space-top -promo">
+                    <a href="<?php echo $promotions_link; ?>">
+                        <div class="wrapper">
+                            <div class="text"> <span class="category"><?php the_field('promotions_category'); ?></span>
+                                <h1 class="title"><?php the_field('promotions_title'); ?> </h1> 
+                                <span class="description"><?php the_field('promotions_description'); ?></span> 
+                                <span class="d-link " title="Clicca qui">
+                                <span>WATCH NOW</span> </span>
+                            </div>
+                            <picture class="image"> <img class="lazyload" data-srcset="<?php the_field('promotions_image');?>" alt="" data-object-fit="cover"> </picture>
+                        </div>
+                    </a>
+                </div>
+            <?php 
+               // if($i>=3){
+                 //   break;
+               // }
+            endwhile; ?>
+            <!-- end of the loop -->
+         <?php wp_reset_postdata(); ?>
+         
+        <?php }else { ?>
+            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+      <?php }?>
+
+<!-- <div class="d-banner-wide _module-space-top _module-space-bottom">
     <a href="/au/en/world/myducati-app" target="_blank">
         <div class="wrapper">
             <div class="text"> <span class="category"></span>
@@ -162,7 +178,10 @@
             <picture class="image"> <img class="lazyload" data-srcset="<?php echo $img_url.'/assets/images/MyDucati-ENG-01-banner-wide-663x249.png';?>" alt="" data-object-fit="cover"> </picture>
         </div>
     </a>
-</div>
+</div> -->
+
+
+<!-- end -->
 <div class="d-banner-full _module-space-top">
     <div class="body">
         <picture>
