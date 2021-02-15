@@ -245,6 +245,7 @@
 </head>
 
 <body>
+
     <!-- End Google Tag Manager (noscript) -->
     <div class="page-wrapper">
         <div class="page-internal-wrapper">
@@ -265,7 +266,7 @@
                         <a href="https://scramblerducati.com/?ori&#61;up_li" class="scrambler">
                             <svg class="icon icon--logo-scrambler" viewBox="0 0 80 29">
                                 <use xlink:href="#logo-scrambler"></use>
-                            </svg> <span><?php echo get_bloginfo();?></span> </a>
+                            </svg> <span><?php echo get_bloginfo('description', 'display');?></span> </a>
                     </div>
                     <div class="right">
                         <div class="country">
@@ -325,1110 +326,333 @@
                                            //     'items_wrap'=>'<ul id="" class="links">%3$s</ul>'
                                          //   )
                                       //  );
-                                    
+                                   // wp_get_menu_array('primary');
                                     ?>
                                     <ul class="links">
-                                        <li class="link">
-                                           <a href="javascript:void(0)" data-js-shortcutnav id="models" class="models">MODELS 
-                                                <span class="triangle">
+                                        <?php 
+                                        $items = wp_get_nav_menu_items('primary');
+                                        //print_r($items);
+                                        if( !empty( $items ) ): ?>
+
+                                        <?php foreach ( $items as $key => $item ):
+                                            //echo "hello";
+                                            //print_r( $key);
+                                            if($key >4)
+                                            break;
+                                         ?>
+                                        <li class="link" <?php if($item->menu_item_parent == 0){ }else{ echo 'style="display:none;"'; } ?>>
+                                           <a href="javascript:void(0)"  <?php if($key !== 4){?>data-js-shortcutnav id="models" class="models" <?php }?>><?php echo $item->title;?> 
+                                                <span class="triangle" style="<?php if($key == 4){echo 'display:none';}?>">
                                                     <svg class="icon icon--triangle" viewBox="0 0 8 8">
                                                       <use xlink:href="#triangle"></use>
                                                     </svg>
                                                 </span>
                                             </a>
-                                            <section data-js-shortcutnav-wrap>
+                                            <?php if($item->ID == 361){ ?>
+                                            <section data-js-shortcutnav-wrap >
                                                 <div class="menu-models">
                                                     <div class="grid" data-js-shortcutnav-grid>
                                                         <div class="gridscroll">
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=0> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/4YwSoOWf0SkOa6EqTegXw6/1e8750c41331d759da8ca62047903a0c/Thumb-menu-Diavel-1260-S-MY20-Ducati-Red.png" alt="">Diavel<span class="new">new</span></a>
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=1> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/3EZ5XKVF47vJ3MZbLWc0eo/77b6d2ef6cdd1b70d7ecdcd30b477af6/Thumb-menu-XDiavel-Black-Star-MY21.png" alt="">XDiavel<span class="new">new</span></a>
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=2> <img class="thumb lazyload" data-src="<?php echo $img_url.'/assets/images/HYM-950-RVE-01-model-menu-120x60.png';?>" alt="">Hypermotard<span class="new">new</span></a>
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=3> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2vZH8MyApiYqk2OYiCciyM/ffc389067d48e544ecc3efe93edfddb7/Thumb-menu-Monster-1200-S-Red-MY20.png" alt="">Monster<span class="new">new</span></a>
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=4> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/6KBckmvAfe09Ym8KomwVov/5414f7a0aad18fed8c969b373f6820bf/Thumb-menu-Streetfighter-V4-S-Red.png" alt="">Streetfighter<span class="new">new</span></a>
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=5> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2fatkAarFiUEs0amAC0wsa/2f5bb0437ae19907e593f0dd764e4b13/Thumb-menu-Multistrada-1260-S-MY20-Red.png" alt="">Multistrada<span class="new">new</span></a>
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=6> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/6mnX3OkFkA0sEMc6uueM6S/2f4092ab52b0909b9c7300ffee3b7f9a/Thumb-menu-Panigale-V4-S-Red.png" alt="">Panigale<span class="new">new</span></a>
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=7> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/7wbSmr2NHG89TvN2OcNiO3/683d0079c0ee616cff09c1a92dbb959e/Thumb-menu-SuperSport-950S-Ducati-Red-MY21.png" alt="">Supersport<span class="new">new</span></a>
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=8> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2cYT40vb5PMxCAyjIWB6W9/354ae7331e9746e021c51ad109cbda43/Thumb-menu-Superleggera-V4-S.png" alt="">Superleggera V4 <span class="new">new</span></a>
-                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=9> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/54kv6iMpyHuG4UZEtYUOSH/894a745897279fe0cb9d7b7dcdc8d922/Thumb-menu-SCR-1100-SportPro.png" alt="">
-                                                                <svg class="icon icon--logo-scrambler" viewBox="0 0 80 29">
-                                                                    <use xlink:href="#logo-scrambler"></use>
-                                                                </svg>
-                                                            </a>
+                                                            <?php
+                                                             // Check rows exists.
+                                                               // if( have_rows('model') ):
+                                                                    // Loop through rows.
+                                                                   // while( have_rows('model') ) : the_row();
+                                                                        // Load sub field value.
+                                                                      //  $sub_value = get_sub_field('select_model');
+                                                                      //  if (has_post_thumbnail( $sub_value->ID ) ): 
+                                                                       //    $image = wp_get_attachment_image_src( get_post_thumbnail_id( $//sub_value->ID ), 'single-post-thumbnail' ); ?>
+                                                                        <?php //endif; 
+                                                                          //   if(get_field('configurator' , $sub_value->ID) == 'Yes'){
+
+                                                                         //    }else{
+                                                                        ?>
+                                                                        <?php if($item->menu_item_parent !== 0){ 
+                                                                            //wp_nav_menu( array(
+                                                                          //      'theme_location'=>'primary',
+                                                                           //     'container'=>false,
+                                                                           //     'walker'=>new Ducati_Walker_Nav_Menu()
+                                                                          //   ))
+                                                                            ?>
+                                                                            <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=0> 
+                                                                                <img class="thumb lazyload" data-src="<?php  ?>" alt="">
+                                                                                <?php //if(!empty(get_field('image_for_title', $sub_value->ID))){ 
+                                                                                ?>
+                                                                                <img src="<?php //echo get_field('image_for_title', $sub_value->ID); ?>" style="background: #FFD201">
+                                                                                <?php
+                                                                                //  }else{  echo $sub_value->post_title;  }?>
+                                                                                   <?php //if(get_field('label' , $sub_value->ID)){?>
+                                                                                        <span class="new"><?php //echo $sub_value->label; ?></span>
+                                                                                        <?php } ?>
+                                                                                  
+                                                                              </a>
+                                                                          <?php //} ?>
+                                                                        <?php
+                                                                 //   }
+                                                                    // End loop.
+                                                                    //endwhile;
+                                                                // No value.
+                                                                //else :
+                                                                // Do something...
+                                                                   // echo 'Sorry, no posts matched your criteria.';
+                                                               // endif;
+                                                        ?>
+                                                            
                                                         </div>
                                                     </div>
                                                     <ul class="links -hidden" data-js-shortcutnav-lv1>
-                                                        <li class="link">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="family">Diavel</div>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/4YwSoOWf0SkOa6EqTegXw6/1e8750c41331d759da8ca62047903a0c/Thumb-menu-Diavel-1260-S-MY20-Ducati-Red.png" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>Diavel</span> </div>
-                                                                    <li class="link -active "> <a href="/au/en/bikes/diavel/diavel-1260" class="">Diavel 1260
-                            </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/3N5NKyLeGiaFedYuiTBTiW/c4da4355fe7eada80cbc85a99849e1da/Model-Menu-MY20-Diavel-1260-Sandsone-Grey.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">1260</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                        159 hp
-                                                    </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                        129 Nm
-                                                    </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                        223 kg
-                                                    </strong> <span>Dry weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price $30,290 AUD <br /> Suggested Retail Price $32,200 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/diavel/diavel" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="/au/en/bikes/diavel/diavel-1260" rel=""><span class="txt">DISCOVER MORE</span></a> </div>
-                                                                            </div>
+                                                        <?php
+                                                     // Check rows exists.
+                                                        if( have_rows('model') ):
+                                                            // Loop through rows.
+                                                            while( have_rows('model') ) : the_row();
+                                                                // Load sub field value.
+                                                                $sub_value = get_sub_field('select_model');
+                                                                if (has_post_thumbnail( $sub_value->ID ) ): 
+                                                                   $image = wp_get_attachment_image_src( get_post_thumbnail_id( $sub_value->ID ), 'single-post-thumbnail' ); ?>
+                                                                <?php endif; 
+                                                                     if(get_field('configurator' , $sub_value->ID) == 'Yes'){
+
+                                                                     }else{
+                                                                ?>
+                                                                  <li class="link">  
+                                                                    <a href="javascript:void(0)" class="block" data-js-shortcutnav-gridblock=0> 
+                                                                        
+                                                                        <?php if(!empty(get_field('image_for_title', $sub_value->ID))){ 
+                                                                        ?>
+                                                                        
+                                                                            <img class="thumb lazyload title_img" data-src="<?php echo get_field('image_for_title', $sub_value->ID); ?>" style="background: #FFD201">
+                                                                        
+                                                                        <?php
+                                                                          }else{  echo '<div class="family">'.$sub_value->post_title.'</div>';  }?>
+                                                                          <div class="wrapper-thumb">
+                                                                            <img class="thumb lazyload" data-src="<?php echo $image[0]; ?>" alt="">
                                                                         </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/diavel/diavel-1260" class="">Diavel 1260 S</a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/3ePyWwkdfMrzN7dqShC6Z9/93fe54b27b3669f263f6469ace82ede2/Model-Menu-MY20-Diavel-1260-S-Ducati-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">1260 S</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                    159 hp
-                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                    129 Nm
-                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                    221 kg
-                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price $35,890 AUD<br />Suggested Retail Price $38,295 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
+                                                                    </a>
+                                                                        <div class="menu-models_lv2">
+                                                                            <ul class="links" data-js-shortcutnav-lv2>
+                                                                                <div class="mobileclose" data-js-mobileclose>
+                                                                                    <div>
+                                                                                        <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
+                                                                                            <use xlink:href="#arrow-small-left"></use>
+                                                                                        </svg>
+                                                                                    </div> <span>Diavel</span> 
                                                                                 </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/diavel/diavel" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="/au/en/bikes/diavel/diavel-1260" rel=""><span class="txt">discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/diavel/diavel-1260-lamborghini" class=""><span class="new">new</span> 1260 Lamborghini
-                            </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/5TUhXsmfKnXMhccPdMWIwW/d76427262f7fa4b6207ec67b2149349d/Model-Menu-MY21-Diavel-1260-Lamborghini.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">Diavel 1260 Lamborghini</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    159 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    129 Nm
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    220 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price $48,600 AUD<br />Suggested Retail Price $53,015 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/diavel/diavel-1260-lamborghini" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="link">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="family"> XDiavel</div>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/3EZ5XKVF47vJ3MZbLWc0eo/77b6d2ef6cdd1b70d7ecdcd30b477af6/Thumb-menu-XDiavel-Black-Star-MY21.png" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>XDiavel</span> </div>
-                                                                    <li class="link -active "> <a href="https://www.ducati.com/au/en/bikes/xdiavel/xdiavel" class=""><span class="new">new</span> Dark
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/zx9H7FDmx8PxIvx6jxq0x/14681c6978fd5ee345ab83212e8a0b46/Model-Menu-MY21-XDiavel-Dark.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">XDiavel </div>
-                                                                                    <div class="txt ">*Only for countries where Euro 5 standard applies</div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    160 hp*
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    93,7 lb-ft*
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    221 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $29,390 AUD<br /> Suggested Retail Price From $31,165 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/xdiavel/xdiavel-dark?_ga&#61;2.245455041.471379978.1604920797-296148449.1571751202" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/xdiavel/xdiavel" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/xdiavel/xdiavel" class=""><span class="new">new</span> S
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/72YYJtZIXMJQSz9g2Pa8nC/2575b6ad1a7efc15eacaba73226c3bc2/Model-Menu-MY20-XDiavel-S-Thrilling-Black.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">XDiavel S</div>
-                                                                                    <div class="txt ">* Only for countries where Euro 5 standard applies.</div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    160 hp*
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    93,7 lb-ft*
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    223 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $36,100 AUD<br />Suggested Retail Price From $38,870 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/xdiavel/xdiavel-s" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/xdiavel/xdiavel" rel=""><span class="txt">Discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/xdiavel/xdiavel" class=""><span class="new">new</span> Black Star
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2Q4RdAaymUHdezGxllOe4s/87441c31a464de3524daf505f4c9d186/Model-Menu-MY21-XDiavel-Black-Star.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">XDiavel Black Star</div>
-                                                                                    <div class="txt ">* Only for countries where Euro 5 standard applies.</div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    160 hp*
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    93,7 lb-ft* 
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    221 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $37,590 AUD <br />Suggested Retail Price From $40,020 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/xdiavel/xdiavel-top?_ga&#61;2.15480819.471379978.1604920797-296148449.1571751202" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/xdiavel/xdiavel" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="link">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="family"> Hypermotard</div>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="<?php echo $img_url.'/assets/images/HYM-950-RVE-01-model-menu-120x60.png';?>" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>Hypermotard</span> </div>
-                                                                    <li class="link -active "> <a href="/au/en/bikes/hypermotard/hypermotard-950" class=""><span class="new">new</span> 950 RVE
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/7csSSDj4VYRk8XKWRDQLsQ/aef759a86336384a684ca3cb477c886b/Model-Menu-MY20-Hypermotard-950-RVE.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">950 RVE</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    114 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    71 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    392 lb 
-                                                                </strong> <span>Dry Weight </span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $23,000 AUD <br />Suggested Retail Price From $24,150 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/hypermotard/hym-rve" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="/au/en/bikes/hypermotard/hypermotard-950" rel=""><span class="txt">Discover More </span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/hypermotard/hypermotard-950" class="">950
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/3HRkTmZ1iuXi3qbuliRu1V/1308a110bfc850b6546ff27ba719fae7/Model-Menu-MY20-Hypermotard-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">950</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    114 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    71 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    392 lb
-                                                                </strong> <span>Dry weight </span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $21,590 AUD<br />Suggested Retail Price From $22,655 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/hypermotard/" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="/au/en/bikes/hypermotard/hypermotard-950" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/hypermotard/hypermotard-950" class="">950 SP
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2d8BX6eRbaaZVgMDiJHL9J/b8d2b46c040ae8e306200f5173cefd53/Model-Menu-MY20-Hypermotard-SP-livery.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">950 SP</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    114 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    71 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    388 lb
-                                                                </strong> <span>Dry weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $26,900 AUD<br />Suggested Retail Price From $28,635 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/hypermotard/" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="/au/en/bikes/hypermotard/hypermotard-950" rel=""><span class="txt">DISCOVER MORE</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="link">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="family"> Monster</div>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2vZH8MyApiYqk2OYiCciyM/ffc389067d48e544ecc3efe93edfddb7/Thumb-menu-Monster-1200-S-Red-MY20.png" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>Monster</span> </div>
-                                                                    <li class="link -active "> <a href="https://www.ducati.com/au/en/bikes/monster/monster" class=""><span class="new">new</span> Monster
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/5TKWHrgWoQ6g5dVKJ9Wuky/c74218bd7c751d0c865cbecc627bc4b5/Model-Menu-MY21-Monster-937-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">Monster</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    111 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    93 Nm
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    166 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $18,200 AUD<br />Suggested Retail Price $18,860 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/monster/monster-937?_ga&#61;2.153922044.57835829.1606734188-296148449.1571751202" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/monster/monster" rel=""><span class="txt">Discover It</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/monster/monster" class=""><span class="new">new</span> Monster &#43;
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/4df26sNCO1hcLG29esK9EY/f1d72bcd81870cc314518693e2c59ae2/Model-Menu-MY21-Monster-937-plus-AG.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">Monster &#43;</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    111 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    93 Nm
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    166 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $18,850 AUD<br />Suggested Retail Price $19,550 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/monster/monster-937-plus?_ga&#61;2.52002857.1445996953.1606732977-296148449.1571751202" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/monster/monster" rel=""><span class="txt">Discover It</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/monster/monster-1200" class="">1200
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/Kqw7k94BmSGlebeoNpPSf/87330c42148819391acd4bbf01eae482/Model-Menu-MY20-Monster-1200-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">1200</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    147 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    91 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    412 lb
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $23,800 AUD<br />Suggested Retail Price From $25,070 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/monster/" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="/au/en/bikes/monster/monster-1200" rel=""><span class="txt">Discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/monster/monster-1200" class="">1200 S
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/7rA3TnPK5BRGugwzxG4FL5/1dce8ca3db5d6cc1d401c11705d53a6d/Model-Menu-MY20-Monster-1200-S-Black-on-black.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">1200 S</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    147 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    91 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    408 lb
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $27,200 AUD<br />Suggested Retail Price From $28,750 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/monster/" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="/au/en/bikes/monster/monster-1200" rel=""><span class="txt">Discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/monster/monster-659-learner-legal" class="">659 (Learner Legal)
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/1dy4T4LlAXtQIwkTUDOXfm/7b8d53c2cf018b71685bfca8b2b1ee1e/Model-Menu-MY20-Monster-797-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">659 (learner legal)</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    50 hp 
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    386 lb
-                                                                </strong> <span>Dry weight</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    32.4 lb-ft (44 Nm) @ 5500 rpm
-                                                                </strong> <span>Torque</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $13,500 AUD<br />Suggested Retail Price From $13,690 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/monster/" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="/au/en/bikes/monster/monster-659-learner-legal" rel=""><span class="txt">Discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="link">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="family"> Streetfighter</div>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/6KBckmvAfe09Ym8KomwVov/5414f7a0aad18fed8c969b373f6820bf/Thumb-menu-Streetfighter-V4-S-Red.png" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>Streetfighter</span> </div>
-                                                                    <li class="link -active "> <a href="/au/en/bikes/streetfighter/streetfighter-v4" class=""><span class="new">new</span> V4 
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/1Q4wNd3l69Hupe4bEumxgB/b0c59ab172042fd70b7aaf59df996b10/Model-Menu-MY20-Streetfighter-V4-02-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">V4 </div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    208 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    90.4 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    180 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $29,800 AUD<br />Suggested Retail Price From $31,970 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/streetfighter" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="/au/en/bikes/streetfighter/streetfighter-v4" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/streetfighter/streetfighter-v4" class=""><span class="new">new</span> V4 S 
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/4MX1OoMxm4oIKdIHvG9wft/dd0627a238f8d7feaab1d55e96345a65/Model-Menu-MY20-Streetfighter-V4-S-E4-Black.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">V4 S </div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    208 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    90.4 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    180 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $34,200 AUD <br />Suggested Retail Price From $36,800 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/streetfighter/streetfighter-v4s" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="/au/en/bikes/streetfighter/streetfighter-v4" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="link">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="family"> Multistrada</div>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2fatkAarFiUEs0amAC0wsa/2f5bb0437ae19907e593f0dd764e4b13/Thumb-menu-Multistrada-1260-S-MY20-Red.png" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>Multistrada</span> </div>
-                                                                    <li class="link -active "> <a href="/au/en/bikes/multistrada/multistrada-950" class="">950
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/5LqgMvvKy0ncOhdUAmadkH/2f4fc87474247563310edb7544b5e72b/Model-Menu-MY20-Multistrada-950-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">950</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    113 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    71 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    204 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $21,500 AUD<br />Suggested Retail Price From $22,425 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/monster/" rel=""><span class="txt">CONFIGURE</span></a> <a class="d-button cta " href="/au/en/bikes/multistrada/multistrada-950" rel=""><span class="txt">Discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/multistrada/multistrada-950" class="">950 S
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/6IK022RpBlCAecpo7VQUTP/3e22bc6a83dd66800a6bd5bac0bb46d5/Model-Menu-MY20-Multistrada-950-S-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">950 S</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    113 hp
-                                                                </strong> <span>POWER</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    71 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    456 lb
-                                                                </strong> <span>Dry weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $24,000 AUD<br />Suggested Retail Price From $25,300 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/multistrada" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="/au/en/bikes/multistrada/multistrada-950" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/multistrada/multistrada-v4" class=""><span class="new">new</span> V4
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2bjONRSqaLbubgDYtfeM2y/d4b7bd672a443034c162d6628bac5317/Model-Menu-MY21-Multistrada-V4-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">Multistrada V4</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    170 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    92 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    478 lb
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $28,990 AUD<br /> Suggested Retail Price From $30,360 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/multistrada/multistrada-v4" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/multistrada/multistrada-v4" rel=""><span class="txt">Discover it</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/multistrada/multistrada-v4" class=""><span class="new">new</span> V4 S 
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/5KcthMf26eBxx2rWtjTvVh/47b41ff4c1550dbb87caf2a51b9b222c/Model-Menu-MY21-Multistrada-V4-S-Red-SW.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">Multistrada V4 S </div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    170 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    92 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    480 lb
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $33,490 AUD<br />Suggested Retail Price From $35,075 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/multistrada/multistrada-v4-s" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/multistrada/multistrada-v4" rel=""><span class="txt">Discover it</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/multistrada/multistrada-v4" class=""><span class="new">new</span> V4 S Sport
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/6onQsUGZAOZJVm1NS4NOhg/fe66d47a21ac5cb4ad991d80b23919bc/Model-Menu-MY21-Multistrada-V4-S-SP.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">V4 S Sport</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    170 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    92 lb ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    217 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $36,790 AUD<br />Suggested Retail Price From $38,468 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/multistrada/multistrada-1260-enduro" class="">1260 Enduro
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2L14ak1hq4Uj4F2Bxc6kOR/2dadfe7ff4f9a14563d99d9e8c17e053/Model-Menu-MY20-Multistrada-1260-Enduro-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">1260 Enduro</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    158 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    94 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    496 lb
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $32,400 AUD<br />Suggested Retail Price From $34,730 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/multistrada" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="/au/en/bikes/multistrada/multistrada-1260-enduro" rel=""><span class="txt">Discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="link">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="family"> Panigale</div>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/6mnX3OkFkA0sEMc6uueM6S/2f4092ab52b0909b9c7300ffee3b7f9a/Thumb-menu-Panigale-V4-S-Red.png" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>Panigale</span> </div>
-                                                                    <li class="link -active "> <a href="/au/en/bikes/panigale/panigale-v2" class=""><span class="new">new</span> V2
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/7zHH2usTp5o3opX2zqMnG2/aee1efdc3c8e36f0f288645a1fe5cad8/Model-Menu-MY20-Panigale-V2-White.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">V2</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    155hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    10.6 Kgm
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    176 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $23,000 AUD<br />Suggested Retail Price From $24,150 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/superbike" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="/au/en/bikes/panigale/panigale-v2" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/panigale/panigale-v4" class="">V4
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/6ijjwnyfDKL0uT7CIYwRqs/63c5eaba99cd91f318b3a109979854b7/Model-Menu-MY20-Panigale-V4-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">V4</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    214 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    91.5 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    386 lb
-                                                                </strong> <span>Dry weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $31,690 AUD<br />Suggested Retail Price From $34,155 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/superbike" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="/au/en/bikes/panigale/panigale-v4" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="/au/en/bikes/panigale/panigale-v4" class="">V4 S
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/120HhsJvxLyy4OseVa3ewI/ab5a46c69b58c45f6536e8d08f8514ea/Model-Menu-MY20-Panigale-V4-S-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">V4 S</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    214 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    91.5 lb-ft
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    384 lb
-                                                                </strong> <span>Dry weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $40,890 AUD<br />Suggested Retail Price From $44,045 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/monster/" rel=""><span class="txt">CONFIGURE</span></a> <a class="d-button cta " href="/au/en/bikes/panigale/panigale-v4" rel=""><span class="txt">Discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/panigale/panigale-v4-sp" class=""><span class="new">new</span> V4 SP
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/4ESLmFvFD744IdxvGYq3uN/92a4853aa4452686f34b4003fbb8863b/Model-Menu-MY21-Panigale-V4-SP.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">Panigale V4 SP</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    214 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    124.0 Nm
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    173 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $51,890 AUD<br />Suggested Retail Price From $56,005 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/superbike/panigale-v4sp?_ga&#61;2.162912188.1618801984.1606131394-296148449.1571751202" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/panigale/panigale-v4-sp" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/panigale/panigale-v4-r" class="">V4 R
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/4UOomM6V9hOHEj37ly7bpx/736b1480ddf17ee944f3f111ed206d88/Model-Menu-MY20-Panigale-V4-R-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">Panigale V4 R</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    221 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    112 Nm
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    172 kg
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $63,995 AUD<br />Suggested Retail Price From $69,104 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="link">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="family"> Supersport</div>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/7wbSmr2NHG89TvN2OcNiO3/683d0079c0ee616cff09c1a92dbb959e/Thumb-menu-SuperSport-950S-Ducati-Red-MY21.png" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>Supersport</span> </div>
-                                                                    <li class="link -active "> <a href="https://www.ducati.com/au/en/bikes/supersport/supersport-950" class=""><span class="new">new</span> 950
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/VX5ylyIcdNU8mAkEgi3i9/ec91184846c53fd5da0f40d891112963/Model-Menu-MY21-SuperSport-950-Ducati-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">SuperSport 950</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    110 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    93 Nm
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    184 kg
-                                                                </strong> <span>Dry weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $19,390 AUD<br />Suggested Retail Price From $20,229 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/supersport/supersport-950?_ga&#61;2.125238154.1618801984.1606131394-296148449.1571751202" rel=""><span class="txt">Configure</span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/supersport/supersport-950" rel=""><span class="txt">Discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://www.ducati.com/au/en/bikes/supersport/supersport-950" class=""><span class="new">new</span> 950 S
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/6xHmWGo24HLoZAEwrl2uxZ/d4c5e4099cec644d6c7feb10350c1dc4/Model-Menu-MY21-SuperSport-950S-Artic-White.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">Supersport 950 S</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    110 hp
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    93 Nm
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    184 kg 
-                                                                </strong> <span>Dry weight</span> </li>
-                                                                                    </ul>
-                                                                                    <div class="price"> <strong>Suggested Ride Away Price From $21,850  AUD<br />Suggested Retail Price From $22,644 NZD</strong> <a href="#price-info" rel="modal:open" class="_infocircle">i</a> </div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/supersport/supersport-950-s?_ga&#61;2.199606190.1618801984.1606131394-296148449.1571751202" rel=""><span class="txt">Configure </span></a> <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/supersport/supersport-950" rel=""><span class="txt">Discover more</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="link">
-                                                            <a href="javascript:void(0)">
-                                                                <div class="family"> Superleggera V4 </div>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/2cYT40vb5PMxCAyjIWB6W9/354ae7331e9746e021c51ad109cbda43/Thumb-menu-Superleggera-V4-S.png" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>Superleggera V4 </span> </div>
-                                                                    <li class="link -active "> <a href="/au/en/bikes/panigale/superleggera-v4" class=""><span class="new">new</span> Superleggera V4 
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/44VVijspCKvE6idM0PKlyi/6f095c98e8c66b4d27d2c56d2fdce0f5/Model-Menu-MY20-Superleggera-V4.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title ">Superleggera V4</div>
-                                                                                    <div class="txt "></div>
-                                                                                    <ul class="table">
-                                                                                        <li class="cell"> <strong>
-                                                                    234 hp with full racing exhaust
-                                                                </strong> <span>Power</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    87.7 lb-ft with full racing exhaust
-                                                                </strong> <span>Torque</span> </li>
-                                                                                        <li class="cell"> <strong>
-                                                                    152.2 kg with racing kit
-                                                                </strong> <span>Dry Weight</span> </li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button cta " href="/au/en/bikes/panigale/superleggera-v4" rel=""><span class="txt">Discover More</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <li class="link -scrambler ">
-                                                            <a href="javascript:void(0)">
-                                                                <svg class="icon icon--logo-scrambler" viewBox="0 0 80 29">
-                                                                    <use xlink:href="#logo-scrambler"></use>
-                                                                </svg>
-                                                                <div class="wrapper-thumb"> <img class="thumb lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/54kv6iMpyHuG4UZEtYUOSH/894a745897279fe0cb9d7b7dcdc8d922/Thumb-menu-SCR-1100-SportPro.png" alt=""> </div>
-                                                            </a>
-                                                            <div class="menu-models_lv2">
-                                                                <ul class="links" data-js-shortcutnav-lv2>
-                                                                    <div class="mobileclose" data-js-mobileclose>
-                                                                        <div>
-                                                                            <svg class="icon icon--arrow-small-left" viewBox="0 0 12 22">
-                                                                                <use xlink:href="#arrow-small-left"></use>
-                                                                            </svg>
-                                                                        </div> <span>SCRAMBLER</span> </div>
-                                                                    <li class="link -active "> <a href="https://scramblerducati.com/en/bike/1100-sport-pro" class="">1100 Sport Pro
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/3fMfypAewSUttp4MuC792u/0b45842ee45f7074bec06de0859d86ef/Model-Menu-MY20-1100-SportPro.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title  -scrambler ">1100 Sport Pro</div>
-                                                                                    <div class="txt  -scrambler "></div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button cta  -scrambler-yellow " href="https://scramblerducati.com/en/bike/1100-sport-pro" rel=""><span class="txt">Discover</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://scramblerducati.com/en/bike/1100-pro" class="">1100 Pro
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/67nehJ8ZxGFWM0lCyyAmPE/04e6f5c3d5a377667c862b5a97023c01/Model-Menu-MY20-1100-Pro-01.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title  -scrambler ">1100 Pro</div>
-                                                                                    <div class="txt  -scrambler "></div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button cta  -scrambler-yellow " href="https://scramblerducati.com/en/bike/1100-pro" rel=""><span class="txt">Discover</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://scramblerducati.com/bike/1100-dark-pro" class=""><span class="new">new</span> 1100 Dark Pro
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/1rygWxPWHjKYUwbNEzN0CH/83ea1c53ff71c0cc487a80e6d1743c4b/SCR-1100-Dark-Pro-01-model-menu-780x430.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title  -scrambler "></div>
-                                                                                    <div class="txt  -scrambler "></div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button cta  -scrambler-yellow " href="https://scramblerducati.com/bike/1100-dark-pro" rel=""><span class="txt">Discover</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://scramblerducati.com/bike/nightshift/?_ga&#61;2.260543051.731440834.1605085206-296148449.1571751202" class=""><span class="new">new</span> Nightshift
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/t9HADJlHCAaPYU3aV8ejJ/fe748d21aaf3169d6c3235bea1795ee3/Model-Menu-MY21-Nightshift.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title  -scrambler ">Nightshift</div>
-                                                                                    <div class="txt  -scrambler "></div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button cta  -scrambler-yellow " href="https://scramblerducati.com/bike/nightshift/?_ga&#61;2.260543051.731440834.1605085206-296148449.1571751202" rel=""><span class="txt">Discover</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://scramblerducati.com/bike/fullthrottle" class="">Full Throttle
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/5zGnrDv1FPLoLe1aZfk3dk/652e03129ff9f2e2a8f597c2ec7aaadb/Model-Menu-MY20-Full-Throttle.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title  -scrambler ">Full Throttle</div>
-                                                                                    <div class="txt  -scrambler "></div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta  -scrambler-black " href="https://configurator.scramblerducati.com/bikes/au/en/scrambler/full-throttle/3297621" rel=""><span class="txt">Configure</span></a> <a class="d-button cta  -scrambler-yellow " href="https://scramblerducati.com/bike/fullthrottle" rel=""><span class="txt">Discover</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://scramblerducati.com/bike/caferacer" class="">Café Racer
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/7ofGKdMuaLYcv3iHo7zyvc/77975ecac9d7e7b920cd5faa530ae166/Model-Menu-MY20-Cafe-Racer.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title  -scrambler ">Café Racer</div>
-                                                                                    <div class="txt  -scrambler "></div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta  -scrambler-black " href="https://configurator.scramblerducati.com/bikes/au/en/scrambler/cafe-racer/3295821" rel=""><span class="txt">Configure</span></a> <a class="d-button cta  -scrambler-yellow " href="https://scramblerducati.com/bike/caferacer" rel=""><span class="txt">Discover</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://scramblerducati.com/bike/desertsled" class=""><span class="new">new</span> Desert Sled
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/4mVEMBXXJc1FFSfQAFMzKK/443da1cd4e819ae1c26f511333557f47/Model-Menu-MY21-Desert-Sled-Blue.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title  -scrambler ">Desert Sled</div>
-                                                                                    <div class="txt  -scrambler "></div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta  -scrambler-black " href="http://configurator.scramblerducati.com/bikes/it/it/scrambler/desert-sled" rel=""><span class="txt">Configure</span></a> <a class="d-button cta  -scrambler-yellow " href="https://scramblerducati.com/bike/desertsled" rel=""><span class="txt">Discover</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://scramblerducati.com/ww/bike/icon" class=""><span class="new">new</span> Icon
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/3a5pZBm9NWFcyZigYrkZ5e/40ff70803ed511200c6de46814ab875a/Model-Menu-MY21-Icon-Red.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title  -scrambler ">Icon</div>
-                                                                                    <div class="txt  -scrambler "></div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button -ghost-grey cta  -scrambler-black " href="https://configurator.scramblerducati.com/bikes/au/en/scrambler/icon/3295834" rel=""><span class="txt">Configure</span></a> <a class="d-button cta  -scrambler-yellow " href="https://scramblerducati.com/ww/bike/icon" rel=""><span class="txt">Discover</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li class="link"> <a href="https://scramblerducati.com/en/bike/icondark" class=""> Icon Dark
-                                    </a>
-                                                                        <div class="model-sheet">
-                                                                            <div class="imgwrap"> <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/4NwUpGxVzeMtcjoY8pzsX/159f8a87802c23c09265868c32a4a44e/Model-Menu-MY20-Icon-Black.png" alt=""> </div>
-                                                                            <div class="content">
-                                                                                <div class="wrap">
-                                                                                    <div class="title  -scrambler "> Icon Dark</div>
-                                                                                    <div class="txt  -scrambler "></div>
-                                                                                </div>
-                                                                                <div class="ctas"> <a class="d-button cta  -scrambler-yellow " href="https://scramblerducati.com/en/bike/icondark" rel=""><span class="txt">Discover</span></a> </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                        <!-- Add Scroll Bar -->
+                                                                                <li class="link -active ">
+                                                                                    <a href="/au/en/bikes/diavel/diavel-1260" class="">Diavel 1260</a>
+                                                                                    <div class="model-sheet">
+                                                                                        <div class="imgwrap">
+                                                                                            <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/3N5NKyLeGiaFedYuiTBTiW/c4da4355fe7eada80cbc85a99849e1da/Model-Menu-MY20-Diavel-1260-Sandsone-Grey.png" alt="">
+                                                                                        </div>
+                                                                                        <div class="content">
+                                                                                            <div class="wrap">
+                                                                                                <div class="title ">1260</div>
+                                                                                                <div class="txt "></div>
+                                                                                                <ul class="table">
+                                                                                                    <li class="cell"> 
+                                                                                                        <strong>159 hp </strong> 
+                                                                                                        <span>Power</span> 
+                                                                                                    </li>
+                                                                                                    <li class="cell">
+                                                                                                        <strong> 129 Nm </strong> 
+                                                                                                        <span>Torque</span> 
+                                                                                                    </li>
+                                                                                                    <li class="cell">
+                                                                                                       <strong> 223 kg </strong> 
+                                                                                                       <span>Dry weight</span> 
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                                <div class="price"> 
+                                                                                                    <strong>Suggested Ride Away Price $30,290 AUD <br /> Suggested Retail Price $32,200 NZD</strong> 
+                                                                                                    <a href="#price-info" rel="modal:open" class="_infocircle">i</a> 
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="ctas"> 
+                                                                                                <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/diavel/diavel" rel="">
+                                                                                                    <span class="txt">Configure</span>
+                                                                                                </a> 
+                                                                                                <a class="d-button cta " href="/au/en/bikes/diavel/diavel-1260" rel="">
+                                                                                                    <span class="txt">DISCOVER MORE</span>
+                                                                                                </a> 
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="link"> <a href="/au/en/bikes/diavel/diavel-1260" class="">Diavel 1260 S</a>
+                                                                                    <div class="model-sheet">
+                                                                                        <div class="imgwrap">
+                                                                                            <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/3ePyWwkdfMrzN7dqShC6Z9/93fe54b27b3669f263f6469ace82ede2/Model-Menu-MY20-Diavel-1260-S-Ducati-Red.png" alt="">
+                                                                                        </div>
+                                                                                        <div class="content">
+                                                                                            <div class="wrap">
+                                                                                                <div class="title ">1260 S</div>
+                                                                                                <div class="txt "></div>
+                                                                                                <ul class="table">
+                                                                                                    <li class="cell"> 
+                                                                                                        <strong>159 hp</strong> 
+                                                                                                        <span>Power</span> 
+                                                                                                    </li>
+                                                                                                    <li class="cell">
+                                                                                                       <strong> 129 Nm </strong> 
+                                                                                                       <span>Torque</span> 
+                                                                                                    </li>
+                                                                                                    <li class="cell">
+                                                                                                       <strong>221 kg </strong> 
+                                                                                                       <span>Dry Weight</span> 
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                                <div class="price"> 
+                                                                                                    <strong>Suggested Ride Away Price $35,890 AUD<br />Suggested Retail Price $38,295 NZD</strong> 
+                                                                                                    <a href="#price-info" rel="modal:open" class="_infocircle">i</a> 
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="ctas"> 
+                                                                                                <a class="d-button -ghost-grey cta " href="https://configurator.ducati.com/bikes/au/en/diavel/diavel" rel="">
+                                                                                                    <span class="txt">Configure </span>
+                                                                                                </a> 
+                                                                                                <a class="d-button cta " href="/au/en/bikes/diavel/diavel-1260" rel="">
+                                                                                                    <span class="txt">discover more</span>
+                                                                                                </a> 
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </li>
+                                                                                <li class="link">
+                                                                                    <a href="https://www.ducati.com/au/en/bikes/diavel/diavel-1260-lamborghini" class="">
+                                                                                        <span class="new">new</span> 1260 Lamborghini
+                                                                                    </a>
+                                                                                    <div class="model-sheet">
+                                                                                        <div class="imgwrap">
+                                                                                            <img class="img lazyload" data-src="https://images.ctfassets.net/x7j9qwvpvr5s/5TUhXsmfKnXMhccPdMWIwW/d76427262f7fa4b6207ec67b2149349d/Model-Menu-MY21-Diavel-1260-Lamborghini.png" alt="">
+                                                                                        </div>
+                                                                                        <div class="content">
+                                                                                            <div class="wrap">
+                                                                                                <div class="title ">Diavel 1260 Lamborghini</div>
+                                                                                                <div class="txt "></div>
+                                                                                                <ul class="table">
+                                                                                                    <li class="cell"> 
+                                                                                                        <strong>159 hp</strong> 
+                                                                                                        <span>Power</span> 
+                                                                                                    </li>
+                                                                                                    <li class="cell"> 
+                                                                                                        <strong> 129 Nm </strong> 
+                                                                                                        <span>Torque</span> 
+                                                                                                    </li>
+                                                                                                    <li class="cell"> 
+                                                                                                        <strong>220 kg</strong> 
+                                                                                                        <span>Dry Weight</span> 
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                                <div class="price"> 
+                                                                                                    <strong>Suggested Ride Away Price $48,600 AUD<br />Suggested Retail Price $53,015 NZD</strong> 
+                                                                                                    <a href="#price-info" rel="modal:open" class="_infocircle">i</a> 
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="ctas"> 
+                                                                                                <a class="d-button cta " href="https://www.ducati.com/au/en/bikes/diavel/diavel-1260-lamborghini" rel="">
+                                                                                                    <span class="txt">Discover More</span>
+                                                                                                </a> 
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>    
+                                                                  </li>
+                                                                <?php
+                                                            }
+                                                            // End loop.
+                                                            endwhile;
+                                                        // No value.
+                                                        else :
+                                                        // Do something...
+                                                            echo 'Sorry, no posts matched your criteria.';
+                                                        endif;
+                                                        ?>
+                                                       
                                                         <div class="swiper-scrollbar"></div>
                                                     </ul>
                                                 </div>
                                             </section>
-                                        </li>
-                                        <li class="link "> <a href="javascript:void(0)" data-js-shortcutnav class="models">EXPERIENCE <span class="triangle">
-    <svg class="icon icon--triangle" viewBox="0 0 8 8">
-      <use xlink:href="#triangle"></use>
-    </svg></span></a>
+                                            <?php } ?>
+                                            <?php if($key == 3){ ?>
                                             <div class="level-two" data-js-shortcutnav-wrap>
-                                                <div class="scroll"> <a href="javascript:void(0)" class="back-navmobile" data-js-backnavmobile><span class="triangle">
-    <svg class="icon icon--triangle" viewBox="0 0 8 8">
-      <use xlink:href="#triangle"></use>
-    </svg></span></a>
+                                                <div class="scroll">
+                                                    <a href="javascript:void(0)" class="back-navmobile" data-js-backnavmobile>
+                                                        <span class="triangle">
+                                                            <svg class="icon icon--triangle" viewBox="0 0 8 8">
+                                                              <use xlink:href="#triangle"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </a>
                                                     <div class="columns-wrap" data-js-nav-lv3>
+                                                        <?php 
+                                        $items = wp_get_nav_menu_items('experience');
+                                        if( !empty( $items ) ): ?>
+                                            <?php foreach ( $items as $key => $item ):
+                                            $product_page_args = array(
+                                                'post_type' => 'page',
+                                                'child_of' => $item->ID,
+                                            );
+                                            $product_pages = new WP_Query($product_page_args);
+                                            $submenu=$product_pages->posts;
+                                            print_r($submenu);
+                                         ?>
                                                         <div class="column" data-js-navlv3-trigger>
-                                                            <div class="title"> Events <span class="plus">
-    <svg class="icon icon--plus" viewBox="0 0 22 22">
-      <use xlink:href="#plus"></use>
-    </svg></span> <span class="minus">
-    <svg class="icon icon--minus" viewBox="0 0 22 22">
-      <use xlink:href="#minus"></use>
-    </svg></span> <span class="arrow">
-    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
-      <use xlink:href="#arrow-small-right"></use>
-    </svg></span> </div>
+                                                            <div class="title"> <?php echo $item->title; ?>
+                                                                <span class="plus">
+                                                                    <svg class="icon icon--plus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#plus"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                                <span class="minus">
+                                                                    <svg class="icon icon--minus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#minus"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                                <span class="arrow">
+                                                                    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
+                                                                      <use xlink:href="#arrow-small-right"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                            </div>
                                                             <ul class="list">
-                                                                <li class="link"><a href="/au/en/events">Agenda</a></li>
-                                                                <li class="link"><a href="https://www.ducati.com/ww/en/experience/ducati-dream-tour">Ducati Dream Tour</a></li>
-                                                                <li class="link"><a href="https://www.ducati.com/ww/en/experience/ducati-travel-partner">Ducati Travel</a></li>
-                                                                <li class="link"><a href="https://www.ducati.com/ww/en/experience/world-ducati-week">World Ducati Week</a></li>
+                                                                <?php foreach($submenu as $postsub){
+                                                                 ?>
+                                                                <li class="link">
+                                                                    <a href="<?php echo get_the_permalink($postsub->ID); ?>"><?php echo $postsub->post_title; ?></a>
+                                                                </li>
+                                                                <?php  } ?>
                                                             </ul>
                                                         </div>
+                                                        <?php
+                                                           // }
+                                                            // End loop.
+                                                             endforeach; 
+                                                        // No value.
+                                                        else :
+                                                        // Do something...
+                                                            echo 'Sorry, no posts matched your criteria.';
+                                                        endif;
+                                                        ?>
                                                         <div class="column" data-js-navlv3-trigger>
-                                                            <div class="title"> Riding Courses <span class="plus">
-    <svg class="icon icon--plus" viewBox="0 0 22 22">
-      <use xlink:href="#plus"></use>
-    </svg></span> <span class="minus">
-    <svg class="icon icon--minus" viewBox="0 0 22 22">
-      <use xlink:href="#minus"></use>
-    </svg></span> <span class="arrow">
-    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
-      <use xlink:href="#arrow-small-right"></use>
-    </svg></span> </div>
+                                                            <div class="title"> Riding Courses
+                                                                <span class="plus">
+                                                                    <svg class="icon icon--plus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#plus"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                                <span class="minus">
+                                                                    <svg class="icon icon--minus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#minus"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                                <span class="arrow">
+                                                                    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
+                                                                      <use xlink:href="#arrow-small-right"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                            </div>
                                                             <ul class="list">
                                                                 <li class="link"><a href="http://dre.ducati.it/en">Ducati Riding Experience</a></li>
                                                                 <li class="link"><a href="http://dre.ducati.it/racetrack/en">DRE Track</a></li>
@@ -1437,32 +661,46 @@
                                                             </ul>
                                                         </div>
                                                         <div class="column" data-js-navlv3-trigger>
-                                                            <div class="title"> Ducati Life <span class="plus">
-    <svg class="icon icon--plus" viewBox="0 0 22 22">
-      <use xlink:href="#plus"></use>
-    </svg></span> <span class="minus">
-    <svg class="icon icon--minus" viewBox="0 0 22 22">
-      <use xlink:href="#minus"></use>
-    </svg></span> <span class="arrow">
-    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
-      <use xlink:href="#arrow-small-right"></use>
-    </svg></span> </div>
+                                                            <div class="title"> Ducati Life 
+                                                                <span class="plus">
+                                                                    <svg class="icon icon--plus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#plus"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                                <span class="minus">
+                                                                    <svg class="icon icon--minus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#minus"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                                <span class="arrow">
+                                                                    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
+                                                                      <use xlink:href="#arrow-small-right"></use>
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
                                                             <ul class="list">
                                                                 <li class="link"><a href="https://www.ducati.com/ww/en/editorial/redline-magazine-2018">Redline Magazine</a></li>
                                                                 <li class="link"><a href="/au/en/world/myducati-app">MyDucati App</a></li>
                                                             </ul>
                                                         </div>
                                                         <div class="column" data-js-navlv3-trigger>
-                                                            <div class="title"> Borgo Panigale Experience <span class="plus">
-    <svg class="icon icon--plus" viewBox="0 0 22 22">
-      <use xlink:href="#plus"></use>
-    </svg></span> <span class="minus">
-    <svg class="icon icon--minus" viewBox="0 0 22 22">
-      <use xlink:href="#minus"></use>
-    </svg></span> <span class="arrow">
-    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
-      <use xlink:href="#arrow-small-right"></use>
-    </svg></span> </div>
+                                                            <div class="title"> Borgo Panigale Experience 
+                                                                <span class="plus">
+                                                                    <svg class="icon icon--plus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#plus"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                                <span class="minus">
+                                                                    <svg class="icon icon--minus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#minus"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                                <span class="arrow">
+                                                                    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
+                                                                      <use xlink:href="#arrow-small-right"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                            </div>
                                                             <ul class="list">
                                                                 <li class="link"><a href="https://www.ducati.com/au/en/borgo-panigale-experience">Visit Ducati</a></li>
                                                                 <li class="link"><a href="https://www.ducati.com/au/en/borgo-panigale-experience/ducati-museum">Ducati Museum</a></li>
@@ -1473,16 +711,23 @@
                                                             </ul>
                                                         </div>
                                                         <div class="column" data-js-navlv3-trigger>
-                                                            <div class="title"> DOC <span class="plus">
-    <svg class="icon icon--plus" viewBox="0 0 22 22">
-      <use xlink:href="#plus"></use>
-    </svg></span> <span class="minus">
-    <svg class="icon icon--minus" viewBox="0 0 22 22">
-      <use xlink:href="#minus"></use>
-    </svg></span> <span class="arrow">
-    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
-      <use xlink:href="#arrow-small-right"></use>
-    </svg></span> </div>
+                                                            <div class="title"> DOC
+                                                                <span class="plus">
+                                                                    <svg class="icon icon--plus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#plus"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                                <span class="minus">
+                                                                    <svg class="icon icon--minus" viewBox="0 0 22 22">
+                                                                      <use xlink:href="#minus"></use>
+                                                                    </svg>
+                                                                </span>
+                                                                 <span class="arrow">
+                                                                    <svg class="icon icon--arrow-small-right" viewBox="0 0 12 22">
+                                                                      <use xlink:href="#arrow-small-right"></use>
+                                                                    </svg>
+                                                                </span> 
+                                                            </div>
                                                             <ul class="list">
                                                                 <li class="link"><a href="https://www.ducati.com/ww/en/desmo-owners-club">Home</a></li>
                                                             </ul>
@@ -1490,8 +735,18 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                             <?php } ?>
                                         </li>
-                                        <li class="link  -mobilewasteful "> <a href="https://www.ducati.com/au/en/motorcycle-promotions">Special Offers </a> </li>
+                                        <?php  endforeach; ?>
+
+                                        <?php else: // Otherwise we show a message indicating that the menu has no elements
+
+                                        ?>
+
+                                        <p class="msg msg--error">The menu has no links loaded.</p>
+
+                                        <?php endif; 
+                                        ?>
                                     </ul>
                                 </div>
                                 <a href="<?php echo $current_url; ?>" class="mainlogo" itemprop="url">
@@ -1503,10 +758,18 @@
                                  <img src="<?php echo $logo[0]; ?>" alt="DUCATI" itemprop="logo"> </a>
                                 <div class="dx">
                                     <ul class="links">
-                                        <li class="link  -mobilewasteful "><a href="https://www.ducati.com/au/en/news">News</a></li>
-                                        <li class="link "><a href="https://contact.ducati.com/au/en/light/contact/test-ride" target="_blank">Test Ride</a></li>
-                                        <li class="link "><a href="https://www.ducati.com/au/en/dealers" target="_blank">Dealer Locator</a></li>
-                                        <li class="link shortcutmobile"><a href="javascript:void(0)" data-js-shortcutnav data-js-shortcutnav-target="0"><span class="open">MODELS </span><span class="close">MODELS </span></a></li>
+                                        <?php 
+                                        foreach ($items as $key => $item) {
+                                       
+                                        
+                                        ?>
+                                        <?php if($key >4){ ?>
+                                        <li class="link  -mobilewasteful "><a href="<?php echo $item->url; ?>"><?php echo $item->post_title;?> </a> </li>
+                                        <?php
+                                             }
+                                        } 
+                                        ?>
+                                        
                                     </ul>
                                 </div>
                             </div>

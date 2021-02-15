@@ -65,51 +65,41 @@
         <h1 class="title"><?php the_field('model_range_title'); ?></h1> </header>
     <ul class="body">
         <?php
-          //  $articles = get_posts( array( 'numberposts' => -1, 'post_status' => 'publish', 'post_excerpt'=>'model_seat_height' ,'post_type' => get_post_types('', 'names'), ) );
-           // print_r($articles);
-
-        // the query
-        $wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1,'category_name'=>'Home page Models')); 
-         //print_r($wpb_all_query);?>
-        <?php if ( $wpb_all_query->have_posts() ) { ?>
- 
-
- 
-            <!-- the loop -->
-            
-            <?php
-            //$i=0;
-             while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); 
-                //$i++;?>
+        // Check rows exists.
+        if( have_rows('model') ):
+            // Loop through rows.
+            while( have_rows('model') ) : the_row();
+                // Load sub field value.
+                $sub_value = get_sub_field('select_model');
+                if (has_post_thumbnail( $sub_value->ID ) ): 
+                   $image = wp_get_attachment_image_src( get_post_thumbnail_id( $sub_value->ID ), 'single-post-thumbnail' ); ?>
+                <?php endif; ?>
                 <li class="block">
                     <a href="<?php the_permalink(); ?>" class="model">
-                        <picture class="picture"> <img class="lazyload" data-srcset="<?php the_field('model_image'); ?>" alt=""> </picture>
-                        <div class="subtitle"><?php the_title(); ?></div>
-                        <div class="content">Displacement: <?php the_field('model_displacement'); ?>
-                            <br /> Power: <?php the_field('model_power'); ?>
-                            <br /> Torque: <?php the_field('model_torque'); ?>
-                            <br /> Seat height: <?php the_field('model_seat_height'); ?>
+                        <picture class="picture"> <img class="lazyload" data-srcset="<?php echo $image[0]; ?>" alt=""> </picture>
+                        <?php if(get_field('configurator' , $sub_value->ID) !== 'Yes'){?>
+                        <div class="subtitle"><?php echo $sub_value->post_title; ?></div>
+                        <?php } ?>
+                        <div class="content">
+                        <?php if(get_field('configurator' , $sub_value->ID) == 'Yes'){
+                                echo $sub_value->post_title;
+                         } ?>
+                            <?php if(get_field('model_displacement' , $sub_value->ID) !=='') {?>Displacement: <?php echo get_field('model_displacement' , $sub_value->ID) ; } ?>
+                            <?php if(get_field('model_power' , $sub_value->ID)  !==''){ ?><br /> Power: <?php echo get_field('model_power' , $sub_value->ID) ;} ?>
+                            <?php if(get_field('model_torque' , $sub_value->ID)  !==''){ ?><br /> Torque: <?php echo get_field('model_torque' , $sub_value->ID) ; } ?>
+                            <?php if(get_field('model_seat_height' , $sub_value->ID)  !==''){ ?> <br /> Seat height: <?php echo get_field('model_seat_height' , $sub_value->ID) ; }?>
                         </div>
                     </a>
                 </li>
-            <?php 
-               // if($i>=3){
-                 //   break;
-               // }
-            endwhile; ?>
-            <!-- end of the loop -->
-         <?php wp_reset_postdata(); ?>
-         
-        <?php }else { ?>
-            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-      <?php }?>
-              <li class="block">
-            <a href="https://configurator.ducati.com/bikes/au/en/" class="model" target="_blank">
-                <picture class="picture"> <img class="lazyload" data-srcset="<?php echo $img_url.'/assets/images/Ducati-Configurator-05-630x390.png';?>" alt=""> </picture>
-                <div class="subtitle"></div>
-                <div class="content">Customise your bike with the Ducati Configurator </div>
-            </a>
-        </li>
+                <?php
+            // End loop.
+            endwhile;
+        // No value.
+        else :
+        // Do something...
+        endif;
+        ?>
+
     </ul>
 </div>
 <!-- <div class="d-models-blocks">
@@ -129,7 +119,7 @@
 </div> -->
 <!-- start -->
 <?php
-        $wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1,'category_name'=>'Home page Promotion')); 
+        $wpb_all_query = new WP_Query(array('post_type'=>'promotions', 'post_status'=>'publish', 'posts_per_page'=>-1)); 
         // print_r($wpb_all_query);?>
         <?php if ( $wpb_all_query->have_posts() ) { ?>
  
@@ -140,18 +130,19 @@
             <?php
             //$i=0;
              while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); 
-                //$i++;?>
-               
+                 if (has_post_thumbnail( $post->ID ) ): 
+                   $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+                <?php endif; ?>
                 <div class="d-banner-wide _module-space-top -promo">
-                    <a href="<?php echo $promotions_link; ?>">
+                    <a href="<?php echo $promotions_link; echo get_post_permalink($post->ID);?>">
                         <div class="wrapper">
                             <div class="text"> <span class="category"><?php the_field('promotions_category'); ?></span>
                                 <h1 class="title"><?php the_field('promotions_title'); ?> </h1> 
                                 <span class="description"><?php the_field('promotions_description'); ?></span> 
                                 <span class="d-link " title="Clicca qui">
-                                <span>WATCH NOW</span> </span>
+                                <span><?php the_field('label'); ?></span> </span>
                             </div>
-                            <picture class="image"> <img class="lazyload" data-srcset="<?php the_field('promotions_image');?>" alt="" data-object-fit="cover"> </picture>
+                            <picture class="image"> <img class="lazyload" data-srcset="<?php echo $image[0];?>" alt="" data-object-fit="cover"> </picture>
                         </div>
                     </a>
                 </div>
@@ -182,87 +173,114 @@
 
 
 <!-- end -->
-<div class="d-banner-full _module-space-top">
-    <div class="body">
-        <picture>
-            <source data-srcset="<?php echo $img_url.'/assets/images/1706-Innovazione-Tecnologica-banner-full-980x600.jpg';?>" media="(max-width: 979px)"> <img class="lazyload" data-srcset="<?php echo $img_url.'/assets/images/1706-Innovazione-Tecnologica-banner-full-1330x600.jpg';?>"> </picture>
-        <div class="content">
-            <h1 class="title">
-                    New Multistrada V4
-                </h1>
-            <p class="text"> Sportier and more touristic, more capable in off-road use and easier in urban use. Discover the new Multistrada V4! </p>
-            <a class="d-link " href="https://www.ducati.com/au/en/bikes/multistrada/multistrada-v4" title="Clicca qui"> <span>Discover It</span> </a>
-        </div>
-        <a class="d-button" href="https://www.ducati.com/au/en/bikes/multistrada/multistrada-v4"> <span class="txt">Discover It</span> </a>
-    </div>
-</div>
+<?php
+    $wpb_all_query = new WP_Query(array('post_type'=>'discover_section', 'post_status'=>'publish', 'posts_per_page'=>-1)); 
+    // print_r($wpb_all_query);
+    if ( $wpb_all_query->have_posts() ) { 
+        while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); 
+            if (has_post_thumbnail( $post->ID ) ): 
+                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+            endif; ?>
+            <div class="d-banner-full _module-space-top">
+                <div class="body">
+                    <picture>
+                        <source data-srcset="<?php echo $image[0];?>" media="(max-width: 979px)"> <img class="lazyload" data-srcset="<?php echo $image[0];?>"> </picture>
+                    <div class="content">
+                        <h1 class="title">
+                                
+                                <?php the_title();?>
+                            </h1>
+                        <p class="text"><?php echo the_field('description');?></p>
+                        <a class="d-link " href="<?php echo $promotions_link; echo get_post_permalink($post->ID);?>" title="Clicca qui"> <span><?php echo the_field('label');?></span> </a>
+                    </div>
+                    <a class="d-button" href="<?php echo $promotions_link; echo get_post_permalink($post->ID);?>"> <span class="txt"><?php echo the_field('label');?></span> </a>
+                </div>
+            </div>
+            <?php endwhile; ?>
+            <!-- end of the loop -->
+         <?php wp_reset_postdata(); ?>
+         
+        <?php }else { ?>
+            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+      <?php }?>
 <div class="d-grid-imgtext _module-space-top">
     <div class="body">
+<?php
+$wpb_all_query = new WP_Query(array('post_type'=>'homepage_posts', 'post_status'=>'publish', 'posts_per_page'=>-1)); 
+// print_r($wpb_all_query);
+if ( $wpb_all_query->have_posts() ) { 
+while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); 
+    if (has_post_thumbnail( $post->ID ) ): 
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+    endif; ?>
         <div class="column">
             <div class="d-card-imgtext" data-js-card-products>
-                <a href="https://contact.ducati.com/au/en/light/contact/dealer?_ga&#61;2.195921004.118844882.1596436418-321641978.1596436418" target="_blank" class="picturewrap">
+                <a href="<?php echo the_field('url');?>" target="_blank" class="picturewrap">
                     <picture class="picture">
-                        <source data-srcset="<?php echo $img_url.'/assets/images/Hypermotard-950-SP-MY19-01-Grd-imgtext-432x230.jpg';?>" media="(min-width: 740px)">
-                        <source data-srcset="<?php echo $img_url.'/assets/images/Hypermotard-950-SP-MY19-01-Grd-imgtext-300x300.jpg';?>" media="(min-width: 0px)"> <img class="lazyload" data-srcset="<?php echo $img_url.'/assets/images/Hypermotard-950-SP-MY19-01-Grd-imgtext-300x300.jpg';?>" data-object-fit="cover"> </picture>
+                        <source data-srcset="<?php echo $image[0];?>" media="(min-width: 740px)">
+                        <source data-srcset="<?php echo $image[0];?>" media="(min-width: 0px)"> <img class="lazyload" data-srcset="<?php echo $image[0];?>" data-object-fit="cover"> </picture>
                 </a>
-                <div class="content"> <a href="https://contact.ducati.com/au/en/light/contact/dealer?_ga&#61;2.195921004.118844882.1596436418-321641978.1596436418" target="_blank" class="title">Book A Test Ride </a> <a href="https://contact.ducati.com/au/en/light/contact/dealer?_ga&#61;2.195921004.118844882.1596436418-321641978.1596436418" target="_blank" class="text">Start your Ducati experience and book a test ride at an authorised Ducati dealer near you. </a> </div>
+                <div class="content"> <a href="<?php echo the_field('url');?>" target="_blank" class="title"><?php the_title();?></a> <a href="<?php echo the_field('url');?>" target="_blank" class="text"><?php $content = get_the_content( 'Read more' );echo apply_filters( 'the_content', $content ); ?></a> </div>
             </div>
         </div>
-        <div class="column">
-            <div class="d-card-imgtext" data-js-card-products>
-                <a href="/au/en/factory-ever-red" class="picturewrap">
-                    <picture class="picture">
-                        <source data-srcset="<?php echo $img_url.'/assets/images/Diavel-1260-Ducati-Tour-2019-01-Thumb-Img-Medium-432x230.jpg';?>" media="(min-width: 740px)">
-                        <source data-srcset="<?php echo $img_url.'/assets/images/Diavel-1260-Ducati-Tour-2019-01-Grid-imgtext-300x300.jpg';?>" media="(min-width: 0px)"> <img class="lazyload" data-srcset="<?php echo $img_url.'/assets/images/Diavel-1260-Ducati-Tour-2019-01-Grid-imgtext-300x300.jpg';?>" data-object-fit="cover"> </picture>
-                </a>
-                <div class="content"> <a href="/au/en/factory-ever-red" class="title">Factory Ever Red Program</a> <a href="/au/en/factory-ever-red" class="text">It is now possible to extend your warranty period by 12 or 24 months. Without any restrictions on mileage, Factory Ever Red provides peace of mind.</a> </div>
-            </div>
-        </div>
-        <div class="column">
-            <div class="d-card-imgtext" data-js-card-products>
-                <a href="https://www.ducati.com/au/en/bikes/monster/monster-659-learner-legal" target="_blank" class="picturewrap">
-                    <picture class="picture">
-                        <source data-srcset="<?php echo $img_url.'/assets/images/02_MONSTER_797.jpg';?>" media="(min-width: 740px)">
-                        <source data-srcset="<?php echo $img_url.'/assets/images/02_MONSTER_797.jpg';?>" media="(min-width: 0px)"> <img class="lazyload" data-srcset="<?php echo $img_url.'/assets/images/02_MONSTER_797.jpg';?>" data-object-fit="cover"> </picture>
-                </a>
-                <div class="content"> <a href="https://www.ducati.com/au/en/bikes/monster/monster-659-learner-legal" target="_blank" class="title">Monster 659 Learner Approved </a> <a href="https://www.ducati.com/au/en/bikes/monster/monster-659-learner-legal" target="_blank" class="text">With the Monster 659 Learner Approved we have created a dynamic motorcycle that encompasses the Monster values and is approved for learners. </a> </div>
-            </div>
-        </div>
+    <?php endwhile; ?>
+    <!-- end of the loop -->
+ <?php wp_reset_postdata(); ?>
+ 
+<?php }else { ?>
+    <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+<?php }?>
     </div>
 </div>
-<div class="d-hero-video">
-    <picture class="picture">
-        <source srcset="<?php echo $img_url.'/assets/images/The-Red-Adventure-Hero-1600x1000-v02.jpg';?>" media="(min-width: 1099px)">
-        <source srcset="<?php echo $img_url.'/assets/images/The-Red-Adventure-Hero-1100x1000-v02.jpg';?>" media="(min-width: 739px)">
-        <source srcset="<?php echo $img_url.'/assets/images/The-Red-Adventure-Hero-740x850.jpg';?>" media="(min-width: 0px)"> <img srcset="<?php echo $img_url.'/assets/images/The-Red-Adventure-Hero-1600x1000-v02.jpg';?>" alt="" data-object-fit="cover"> </picture>
-    <div class="video-wrap">
-        <video playsinline autoplay muted loop poster="<?php echo $img_url.'/assets/images/The-Red-Adventure-Hero-1600x1000-v02.jpg';?>" class="video">
-            <source src="https://videos.ctfassets.net/x7j9qwvpvr5s/1T2xTAuXAQ893GkzYV3oHq/223c63eb4f9eeed003f5ad9a464103cc/DUCATI_AUSTRALIA_BANNER_10__05_1.webm" type="video/webm">
-            <source src="https://videos.ctfassets.net/x7j9qwvpvr5s/3EmplRbn1Py8tr3ptVWub6/22e884c6695ce669ba68e8487121838c/DUCATI_AUSTRALIA_BANNER_10__05.mp4" type="video/mp4"> </video>
-    </div>
-    <section class="body">
-        <div class="subtitle">The new red adventure</div>
-        <h2 class="title">Ducati arrive in Australia and New Zealand </h2>
-        <div class="wrapshare"> </div>
-        <div class="wrapcta">
-            <a class="d-button" href="#hero-video-RedAdventure" rel="modal:open"> <span class="txt">Red Adventure </span> </a>
+<?php
+$wpb_all_query = new WP_Query(array('post_type'=>'homepagevideos', 'post_status'=>'publish', 'posts_per_page'=>-1)); 
+// print_r($wpb_all_query);
+if ( $wpb_all_query->have_posts() ) { 
+while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); 
+    if (has_post_thumbnail( $post->ID ) ): 
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+    endif; ?>
+    <div class="d-hero-video">
+        <picture class="picture">
+            <source srcset="<?php echo $image[0];?>" media="(min-width: 1099px)">
+            <source srcset="<?php echo $image[0];?>" media="(min-width: 739px)">
+            <source srcset="<?php echo $image[0]?>" media="(min-width: 0px)"> 
+            <img srcset="<?php echo $image[0];?>" alt="" data-object-fit="cover"> </picture>
+        <div class="video-wrap">
+            <video playsinline autoplay muted loop poster="<?php echo $img_url.'/assets/images/The-Red-Adventure-Hero-1600x1000-v02.jpg';?>" class="video">
+                <source src="<?php echo the_field('video_url');?>" type="video/webm">
+                <source src="<?php echo the_field('mp4_video_url');?>" type="video/mp4"> </video>
         </div>
-    </section>
-    <div id="hero-video-RedAdventure" class="modal-wrapinline">
-        <div class="d-modal-video -fullscreenmodal" data-js-modal-video>
-            <a href="#" class="modalclose" rel="modal:close">
-                <svg class="icon icon--modal-close" viewBox="0 0 20 22">
-                    <use xlink:href="#modal-close"></use>
-                </svg>
-            </a>
-            <div class="video-wrap"></div>
-            <script class="video-tpl" type="text/template">
-                <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
-            </script>
+        <section class="body">
+            <div class="subtitle"><?php the_title();?></div>
+            <h2 class="title"><?php $content = get_the_content( 'Read more' );echo apply_filters( 'the_content', $content ); ?></h2>
+            <div class="wrapshare"> </div>
+            <div class="wrapcta">
+                <a class="d-button" href="#hero-video-RedAdventure" rel="modal:open"> <span class="txt"><?php the_field('button_label');?> </span> </a>
+            </div>
+        </section>
+        <div id="hero-video-RedAdventure" class="modal-wrapinline">
+            <div class="d-modal-video -fullscreenmodal" data-js-modal-video>
+                <a href="#" class="modalclose" rel="modal:close">
+                    <svg class="icon icon--modal-close" viewBox="0 0 20 22">
+                        <use xlink:href="#modal-close"></use>
+                    </svg>
+                </a>
+                <div class="video-wrap"></div>
+                <script class="video-tpl" type="text/template">
+                    <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
+                </script>
+            </div>
         </div>
     </div>
-</div>
-<div id="price-info" class="modal-wrapinline">
+    <?php endwhile; ?>
+    <!-- end of the loop -->
+ <?php wp_reset_postdata(); ?>
+ 
+<?php }else { ?>
+    <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+<?php }?>
+<!-- <div id="price-info" class="modal-wrapinline">
     <div class="d-modal-info -smallmodal ">
         <a href="#" class="modalclose" rel="modal:close">
             <svg class="icon icon--modal-close" viewBox="0 0 20 22">
@@ -275,14 +293,15 @@
             <br>
             <br> New Zealand: The New Zealand price is based on the manufacturer suggested retail price (MSRP). This excludes all other costs associated such as dealer delivery, registration and taxes. Contact your authorised Ducati dealer to confirm pricing. Ducati reserves the right to vary the pricing at any time. </p>
     </div>
-</div>
+</div> -->
 <div class="d-box-newsletter" data-js-box-newsletter>
     <div class="body">
         <div class="d-loader -negative">
             <div class="spinner"></div>
         </div>
         <div class="content">
-            <form action="#" novalidate>
+            <?php echo do_shortcode('[contact-form-7 id="260" title="Contact form 1"]');?>
+<!--             <form action="#" novalidate>
                 <h1 class="nl-title">
                     Subscribe to the Ducati newsletter
                 </h1>
@@ -310,7 +329,7 @@
                 <div class="nl-success" style="display: none">
                     <p> Thank you for subscribing. </p>
                 </div>
-            </form>
+            </form> -->
         </div>
     </div>
 </div>

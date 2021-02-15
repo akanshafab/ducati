@@ -6,10 +6,29 @@
 					    </svg>
 					</div>
 					<div class="iscroll">
+            	        <?php
+                           wp_nav_menu(
+                               array(
+                                   'menu'=>'footer',
+                                    'container'=>'',
+                                   'theme_location'=>'primary',
+                                   'items_wrap'=>'<ul id="" class="links">%3$s</ul>'
+                               )
+                           );
+                        
+                        ?>
+                    </div>
+                    <div class="iscroll" <?php if(is_active_sidebar('footer-sidebar-1') || is_active_sidebar('footer-sidebar-2') || is_active_sidebar('footer-sidebar-3')){ echo 'style="display:block"';}else{ echo 'style="display:none"'; }?>>
 			            <ul class="links">
-			                <li class="item"><a href="https://www.ducati.com/ww/en/home/terms" rel="" class="link">TERMS OF USE</a></li>
-			                <li class="item"><a href="/au/en/home/privacy" rel="" class="link">PRIVACY INFORMATION</a></li>
-			                <li class="item"><a href="https://www.ducati.com/au/en/home/cookie-policy" rel="" class="link">COOKIES INFORMATION</a></li>
+			                <li class="item">
+								<?php if(is_active_sidebar('footer-sidebar-1')){ dynamic_sidebar('footer-sidebar-1');} ?>
+			                </li>
+			                <li class="item">
+			                	<?php if(is_active_sidebar('footer-sidebar-2')){ dynamic_sidebar('footer-sidebar-2'); }?>
+			                </li>
+			                <li class="item">
+			                	<?php if(is_active_sidebar('footer-sidebar-3')){ dynamic_sidebar('footer-sidebar-3'); }?>
+			                </li>
 			            </ul>
 			        </div>
 					<div class="copyright">Copyright © 2021 Ducati Motor Holding S.p.A – A Sole Shareholder Company - A Company subject to the Management and Coordination activities of AUDI AG. All rights reserved. VAT 05113870967</div>
@@ -85,306 +104,55 @@
 						           </div>
 						        </div>
 						        <ul class="countrylist">
-						            <li>
-							            <div class="country">
-							                <img src="<?php echo get_theme_file_uri().'/assets/images/ar.png'; ?>"/>
-											<ul>
-							                    <li>
-						                            <a href="https://www.ducati.com/ar/es/home" >
-						                                Argentina
-						                                
-						                            </a>
-							                    </li>
-								    		</ul>
-										</div>
-							        </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/au.png'; ?>"/>
-
-						                    <ul>
-						                        <li>
-							                        <a href="https://www.ducati.com/au/en/home" class="selected">
-							                            Australia
-							                            
-							                        </a>
-							                    </li>
-											</ul>
-
-						                </div>
-						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/br.png'; ?>"/>
-
-						                    <ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/br/pt/home" >Brasil</a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/be.png'; ?>"/>
-											<ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/be/nl/home" >
-						                                België
-						                                (nl)
-						                            </a>
-						                        </li>
-												<li>
-						                            <a href="https://www.ducati.com/be/fr/home" >
-						                                Belgique
-						                                (fr)
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/ca.png'; ?>"/>
-											<ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/ca/en/home" >
-						                                Canada
-						                                (en)
-						                            </a>
-						                        </li>
-												<li>
-						                            <a href="https://www.ducati.com/ca/fr/home" >
-						                                Canada
-						                                (fr)
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-						    		<li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/cn.png'; ?>"/>
-
-						                    <ul>
-						                        <li>
-						                            <a href="https://www.ducatichina.cn/" >
-						                                中國
-						                                
-						                            </a>
-						                        </li>
-											</ul>
-						                </div>
-						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/de.png'; ?>"/>
-
-						                    <ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/de/de/home" >
-						                                Deutschland
-						                                
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>                    
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/es.png'; ?>"/>
-
-						                    <ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/es/es/home" >
-						                                España
-						                                
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-						  			<li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/fr.png'; ?>"/>
-											<ul>
-						                        <li>
-							                        <a href="https://www.ducati.com/fr/fr/home" >
-							                            France
-							                            
-							                        </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/in.png'; ?>"/>
-											<ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/in/en/home" >
-						                                India
-						                                
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-						    		<li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/it.png'; ?>"/>
-											<ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/it/it/home" >
-						                                Italia
-						                                
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/jp.png'; ?>"/>
-											<ul>
-						                        <li>
-							                        <a href="https://www.ducati.com/jp/ja/home" >
-							                            日本
-							                            
-							                        </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/lu.png'; ?>"/>
-
-						                    <ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/be/nl/home" >
-						                                Luxembourg
-						                                (nl)
-						                            </a>
-						                        </li>
-												<li>
-						                            <a href="https://www.ducati.com/be/fr/home" >
-						                                Luxembourg
-						                                (fr)
-						                            </a>
-						                        </li>   
-						                    </ul>
-
-						                </div>
-						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/mx.png'; ?>"/>
-						                    <ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/mx/es/home" >
-						                                México
-						                                
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
+						            <?php
+								    $wpb_all_query = new WP_Query(array('post_type'=>'countries', 'post_status'=>'publish', 'posts_per_page'=>-1)); 
+								    // print_r($wpb_all_query);
+								    if ( $wpb_all_query->have_posts() ) { 
+								        while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); 
+								            if (has_post_thumbnail( $post->ID ) ): 
+								                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+						            endif; ?>
 									<li>
 						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/nl.png'; ?>"/>
-
-						                    <ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/nl/nl/home" >
-						                                Nederland
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/ch.png'; ?>"/>
+						                    <img src="<?php echo $image[0];?>"/>
 											<ul>
-						                    	<li>
-						                            <a href="https://www.ducati.com/ch/de/home" >
-						                                Schweiz
-						                                (de)
+						                        <li>
+						                            <a href="<?php the_field('url');?>" >
+						                               <?php the_title();?>
 						                            </a>
 						                        </li>
+						                        <?php 
+													$link = get_field('add_second_country');
+													if( $link ): 
+													    $link_url = $link['url'];
+													    $link_title = $link['title'];
+													    $link_target = $link['target'] ? $link['target'] : '_self';
+													    ?>
 												<li>
-						                            <a href="https://www.ducati.com/ch/fr/home" >
-						                                Suisse
-						                                (fr)
-						                            </a>
-						                        </li>
+													    <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+												</li>
+													<?php endif; ?>
+													<?php 
+													$link = get_field('add_third_link');
+													if( $link ): 
+													    $link_url = $link['url'];
+													    $link_title = $link['title'];
+													    $link_target = $link['target'] ? $link['target'] : '_self';
+													    ?>
 												<li>
-						                            <a href="https://www.ducati.com/ch/it/home" >
-						                                Svizzera
-						                                (it)
-						                            </a>
-						                        </li>
-											 </ul>
-										</div>
-						            </li>            
-						            <li>
-						                <div class="country">
-											<ul class="countries-group">
-						                        <li>
-						                         <img src="<?php echo get_theme_file_uri().'/assets/images/se.png'; ?>"/>
-						                            <a href="https://www.ducati.com/se/sv/home" >
-						                                Sweden
-						                            </a>
-						                        </li>
-												<li>
-						                         <img src="<?php echo get_theme_file_uri().'/assets/images/no.png'; ?>"/>
-						                            <a href="https://www.ducati.com/se/sv/home" >
-						                                Norway
-						                            </a>
+													    <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+													<?php endif; ?>
 						                        </li>
 											</ul>
 										</div>
 						            </li>
-						            <li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/th.png'; ?>"/>
-											<ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/th/th/home" >
-						                                Thailand
-						                                
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-									<li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/gb.png'; ?>"/>
-											<ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/gb/en/home" >
-						                                United Kingdom
-						                                
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
-									<li>
-						                <div class="country">
-						                    <img src="<?php echo get_theme_file_uri().'/assets/images/us.png'; ?>"/>
-											<ul>
-						                        <li>
-						                            <a href="https://www.ducati.com/us/en/home" >
-						                                United States
-						                                
-						                            </a>
-						                        </li>
-											</ul>
-										</div>
-						            </li>
+			 <?php endwhile; ?>
+            <!-- end of the loop -->
+         <?php wp_reset_postdata(); ?>
+         
+        <?php }else { ?>
+            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+      <?php }?>
 						        </ul>
 					        </div>
 					    </div>
